@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<title>Letenky do Phuketu – report</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; color: #1a1a1a; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .subtitle { color: #666; font-size: 13px; margin-bottom: 14px; }
+  .meta { color: #666; font-size: 13px; margin-bottom: 16px; }
+  .summary { background: #eef6ff; border: 1px solid #cfe3ff; padding: 12px 16px;
+             border-radius: 8px; margin-bottom: 16px; font-size: 15px; }
+  .notes { background: #fff8e6; border: 1px solid #ffe2a8; padding: 8px 16px;
+            border-radius: 8px; margin-bottom: 16px; font-size: 13px; }
+  .wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 1080px;
+          table-layout: fixed; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top;
+           word-wrap: break-word; overflow-wrap: break-word; }
+  th { background: #f4f4f4; }
+  tr.cheapest { background: #d9f7d9; }
+  tr.cheapest .price { font-weight: 700; color: #1b6b2f; }
+  tr.isnew td:first-child { border-left: 3px solid #d97706; }
+  td.price { white-space: nowrap; font-size: 15px; }
+  td.navrat { white-space: nowrap; }
+  td.dur { white-space: normal; }
+  .apn { font-size: 11px; color: #888; margin-top: 2px; }
+  .dur { color: #333; }
+  .times { font-size: 11px; color: #555; margin-top: 3px; font-weight: 400; }
+  .muted { color: #999; }
+  .newbadge { display: inline-block; background: #fff3e0; color: #b45309;
+              border: 1px solid #f0c98a; border-radius: 5px; font-size: 11px;
+              font-weight: 700; padding: 1px 6px; margin-bottom: 4px; white-space: nowrap; }
+  .btn { display: inline-block; background: #0a58ca; color: #fff; text-decoration: none;
+          padding: 6px 12px; border-radius: 6px; font-size: 13px; white-space: nowrap; }
+  .btn:hover { background: #0846a3; }
+  .gulf { color: #c0392b; font-weight: 700; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .tab { border: 1px solid #ccd; background: #f4f6fb; color: #1a1a1a; cursor: pointer;
+         padding: 8px 14px; border-radius: 8px; font-size: 14px; }
+  .tab:hover { background: #e8edf7; }
+  .tab.active { background: #0a58ca; color: #fff; border-color: #0a58ca; }
+  .tab .t-sub { display: block; font-size: 11px; opacity: 0.75; margin-top: 1px; }
+  .day { display: none; }
+  .day.active { display: block; }
+</style>
+</head>
+<body>
+<h1>Ceny leteniek do Phuketu (HKT)</h1><div class="subtitle">Odlet 2027-02-18 → návrat 2027-03-07 / 2027-03-06 &nbsp;|&nbsp; 2 dospelí + 2 deti &nbsp;|&nbsp; economy &nbsp;|&nbsp; max 1 prestup &nbsp;|&nbsp; zálivové prestupy povolené (označené ❗)</div><div class="tabs"><button class="tab active" data-day="2026-09-17" onclick="showDay('2026-09-17')">17. 9. 2026 (najnovší)<span class="t-sub">09:03</span></button><button class="tab" data-day="2026-09-16" onclick="showDay('2026-09-16')">16. 9. 2026<span class="t-sub">09:03</span></button><button class="tab" data-day="2026-09-15" onclick="showDay('2026-09-15')">15. 9. 2026<span class="t-sub">09:22</span></button><button class="tab" data-day="2026-09-14" onclick="showDay('2026-09-14')">14. 9. 2026<span class="t-sub">08:51</span></button><button class="tab" data-day="2026-09-13" onclick="showDay('2026-09-13')">13. 9. 2026<span class="t-sub">13:21</span></button><button class="tab" data-day="2026-09-12" onclick="showDay('2026-09-12')">12. 9. 2026<span class="t-sub">16:04</span></button></div><section class="day active" id="day-2026-09-17">
+  <div class="meta">Beh: 2026-09-17 09:03:31</div>
+  <div class="summary">Najlacnejšia ponuka: <strong>2106 EUR</strong> z mesta <strong>VIE</strong> (návrat 2027-03-06, Scoot).</div>
+  
+  <p class="meta">Zobrazených TOP 6 najlacnejších ponúk (porovnaných bolo 61).
+     &nbsp;<span class="gulf">❗</span> = prestup v Perzskom zálive (Dubaj, Dauha a pod.). &nbsp; <span class="newbadge">🆕 nové</span> = let, ktorý predošlý deň nebol v TOP.</p>
+  <div class="wrap">
+  <table>
+    <colgroup>
+      <col style="width:8%"><col style="width:10%"><col style="width:9%"><col style="width:7%">
+      <col style="width:9%"><col style="width:14%"><col style="width:9%"><col style="width:14%">
+      <col style="width:9%"><col style="width:11%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Odlet</th>
+        <th>Prílet</th>
+        <th>Návrat</th>
+        <th>Cena (EUR)</th>
+        <th>Aerolinka</th>
+        <th>Cesta TAM</th>
+        <th>Prestup TAM</th>
+        <th>Cesta SPÄŤ</th>
+        <th>Prestup SPÄŤ</th>
+        <th>Odkaz</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="cheapest">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2106 €</td>
+            <td>Scoot</td>
+            <td class="dur">17h 55m<div class="times">odlet 18.2. 10:00 → prílet 19.2. 09:55</div></td>
+            <td><b>SIN</b> <span class="dur">4h 15m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td class="dur">23h 25m<div class="times">odlet 6.3. 15:05 → prílet 7.3. 08:30</div></td>
+            <td><b>SIN</b> <span class="dur">8h 35m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="isnew">
+            <td><div class="newbadge">🆕 nové</div><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2434 €</td>
+            <td>Air China</td>
+            <td class="dur">19h 35m<div class="times">odlet 18.2. 13:00 → prílet 19.2. 14:35</div></td>
+            <td><b>PEK</b> <span class="dur">3h 55m</span><div class="apn">Letisko Peking</div></td>
+            <td class="dur">17h 55m<div class="times">odlet 7.3. 18:25 → prílet 8.3. 06:20</div></td>
+            <td><b>PEK</b> <span class="dur">2h 10m</span><div class="apn">Letisko Peking</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="isnew">
+            <td><div class="newbadge">🆕 nové</div><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2635 €</td>
+            <td>Saudia</td>
+            <td class="dur">16h 35m<div class="times">odlet 18.2. 15:45 → prílet 19.2. 14:20</div></td>
+            <td><b>JED</b> <span class="gulf">❗</span> <span class="dur">3h 45m</span><div class="apn">King Abdulaziz International Airport</div></td>
+            <td class="dur">28h 20m<div class="times">odlet 7.3. 15:50 → prílet 8.3. 14:10</div></td>
+            <td><b>RUH</b> <span class="gulf">❗</span> <span class="dur">13h 40m</span><div class="apn">Mezinárodní letiště Krále Chálida</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2712 €</td>
+            <td>Scoot</td>
+            <td class="dur">17h 55m<div class="times">odlet 18.2. 10:00 → prílet 19.2. 09:55</div></td>
+            <td><b>SIN</b> <span class="dur">4h 15m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td class="dur">32h 50m<div class="times">odlet 7.3. 18:20 → prílet 8.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">19h 40m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2858 €</td>
+            <td>Air Arabia</td>
+            <td class="dur">16h 05m<div class="times">odlet 18.2. 12:10 → prílet 19.2. 10:15</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 05m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td class="dur">32h 50m<div class="times">odlet 7.3. 18:20 → prílet 8.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">19h 40m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2858 €</td>
+            <td>Air Arabia</td>
+            <td class="dur">16h 05m<div class="times">odlet 18.2. 12:10 → prílet 19.2. 10:15</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 05m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td class="dur">18h 05m<div class="times">odlet 6.3. 09:05 → prílet 6.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 55m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr></tbody>
+  </table>
+  </div></section><section class="day" id="day-2026-09-16">
+  <div class="meta">Beh: 2026-09-16 09:03:13</div>
+  <div class="summary">Najlacnejšia ponuka: <strong>2106 EUR</strong> z mesta <strong>VIE</strong> (návrat 2027-03-06, Scoot).</div>
+  
+  <p class="meta">Zobrazených TOP 6 najlacnejších ponúk (porovnaných bolo 63).
+     &nbsp;<span class="gulf">❗</span> = prestup v Perzskom zálive (Dubaj, Dauha a pod.). &nbsp; <span class="newbadge">🆕 nové</span> = let, ktorý predošlý deň nebol v TOP.</p>
+  <div class="wrap">
+  <table>
+    <colgroup>
+      <col style="width:8%"><col style="width:10%"><col style="width:9%"><col style="width:7%">
+      <col style="width:9%"><col style="width:14%"><col style="width:9%"><col style="width:14%">
+      <col style="width:9%"><col style="width:11%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Odlet</th>
+        <th>Prílet</th>
+        <th>Návrat</th>
+        <th>Cena (EUR)</th>
+        <th>Aerolinka</th>
+        <th>Cesta TAM</th>
+        <th>Prestup TAM</th>
+        <th>Cesta SPÄŤ</th>
+        <th>Prestup SPÄŤ</th>
+        <th>Odkaz</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="cheapest">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2106 €</td>
+            <td>Scoot</td>
+            <td class="dur">17h 55m<div class="times">odlet 18.2. 10:00 → prílet 19.2. 09:55</div></td>
+            <td><b>SIN</b> <span class="dur">4h 15m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td class="dur">23h 25m<div class="times">odlet 6.3. 15:05 → prílet 7.3. 08:30</div></td>
+            <td><b>SIN</b> <span class="dur">8h 35m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="isnew">
+            <td><div class="newbadge">🆕 nové</div><b>BUD</b><div class="apn">Medzinárodné letisko Ferenca Liszta Budapešť</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2340 €</td>
+            <td>Air China</td>
+            <td class="dur">19h 45m<div class="times">odlet 18.2. 19:35 → prílet 19.2. 21:20</div></td>
+            <td><b>PEK</b> <span class="dur">4h 20m</span><div class="apn">Letisko Peking</div></td>
+            <td class="dur">24h 45m<div class="times">odlet 7.3. 22:50 → prílet 8.3. 17:35</div></td>
+            <td><b>PEK</b> <span class="dur">8h 45m</span><div class="apn">Letisko Peking</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20BUD%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="isnew">
+            <td><div class="newbadge">🆕 nové</div><b>BUD</b><div class="apn">Medzinárodné letisko Ferenca Liszta Budapešť</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2647 €</td>
+            <td>Shanghai Airlines</td>
+            <td class="dur">28h 30m<div class="times">odlet 18.2. 11:30 → prílet 19.2. 22:00</div></td>
+            <td><b>PVG</b> <span class="dur">11h 55m</span><div class="apn">Medzinárodné letisko Šanghaj Pchu-tung</div></td>
+            <td class="dur">?</td>
+            <td><span class="muted">?</span></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20BUD%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2704 €</td>
+            <td>Scoot</td>
+            <td class="dur">17h 55m<div class="times">odlet 18.2. 10:00 → prílet 19.2. 09:55</div></td>
+            <td><b>SIN</b> <span class="dur">4h 15m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td class="dur">32h 50m<div class="times">odlet 7.3. 18:20 → prílet 8.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">19h 40m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2858 €</td>
+            <td>Air Arabia</td>
+            <td class="dur">16h 05m<div class="times">odlet 18.2. 12:10 → prílet 19.2. 10:15</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 05m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td class="dur">32h 50m<div class="times">odlet 7.3. 18:20 → prílet 8.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">19h 40m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2858 €</td>
+            <td>Air Arabia</td>
+            <td class="dur">16h 05m<div class="times">odlet 18.2. 12:10 → prílet 19.2. 10:15</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 05m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td class="dur">18h 05m<div class="times">odlet 6.3. 09:05 → prílet 6.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 55m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr></tbody>
+  </table>
+  </div></section><section class="day" id="day-2026-09-15">
+  <div class="meta">Beh: 2026-09-15 09:22:42</div>
+  <div class="summary">Najlacnejšia ponuka: <strong>2106 EUR</strong> z mesta <strong>VIE</strong> (návrat 2027-03-06, Scoot).</div>
+  
+  <p class="meta">Zobrazených TOP 6 najlacnejších ponúk (porovnaných bolo 63).
+     &nbsp;<span class="gulf">❗</span> = prestup v Perzskom zálive (Dubaj, Dauha a pod.). &nbsp; <span class="newbadge">🆕 nové</span> = let, ktorý predošlý deň nebol v TOP.</p>
+  <div class="wrap">
+  <table>
+    <colgroup>
+      <col style="width:8%"><col style="width:10%"><col style="width:9%"><col style="width:7%">
+      <col style="width:9%"><col style="width:14%"><col style="width:9%"><col style="width:14%">
+      <col style="width:9%"><col style="width:11%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Odlet</th>
+        <th>Prílet</th>
+        <th>Návrat</th>
+        <th>Cena (EUR)</th>
+        <th>Aerolinka</th>
+        <th>Cesta TAM</th>
+        <th>Prestup TAM</th>
+        <th>Cesta SPÄŤ</th>
+        <th>Prestup SPÄŤ</th>
+        <th>Odkaz</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="cheapest">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2106 €</td>
+            <td>Scoot</td>
+            <td class="dur">17h 55m<div class="times">odlet 18.2. 10:00 → prílet 19.2. 09:55</div></td>
+            <td><b>SIN</b> <span class="dur">4h 15m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td class="dur">23h 25m<div class="times">odlet 6.3. 15:05 → prílet 7.3. 08:30</div></td>
+            <td><b>SIN</b> <span class="dur">8h 35m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="isnew">
+            <td><div class="newbadge">🆕 nové</div><b>BUD</b><div class="apn">Medzinárodné letisko Ferenca Liszta Budapešť</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2394 €</td>
+            <td>Air China</td>
+            <td class="dur">19h 45m<div class="times">odlet 18.2. 19:35 → prílet 19.2. 21:20</div></td>
+            <td><b>PEK</b> <span class="dur">4h 20m</span><div class="apn">Letisko Peking</div></td>
+            <td class="dur">29h 10m<div class="times">odlet 6.3. 18:25 → prílet 7.3. 17:35</div></td>
+            <td><b>PEK</b> <span class="dur">13h 10m</span><div class="apn">Letisko Peking</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20BUD%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="isnew">
+            <td><div class="newbadge">🆕 nové</div><b>BUD</b><div class="apn">Medzinárodné letisko Ferenca Liszta Budapešť</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2649 €</td>
+            <td>Shanghai Airlines</td>
+            <td class="dur">28h 30m<div class="times">odlet 18.2. 11:30 → prílet 19.2. 22:00</div></td>
+            <td><b>PVG</b> <span class="dur">11h 55m</span><div class="apn">Medzinárodné letisko Šanghaj Pchu-tung</div></td>
+            <td class="dur">37h 00m<div class="times">odlet 6.3. 00:05 → prílet 7.3. 07:05</div></td>
+            <td><b>PVG</b> <span class="dur">20h 30m</span><div class="apn">Medzinárodné letisko Šanghaj Pchu-tung</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20BUD%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2696 €</td>
+            <td>Scoot</td>
+            <td class="dur">17h 55m<div class="times">odlet 18.2. 10:00 → prílet 19.2. 09:55</div></td>
+            <td><b>SIN</b> <span class="dur">4h 15m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td class="dur">32h 50m<div class="times">odlet 7.3. 18:20 → prílet 8.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">19h 40m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2846 €</td>
+            <td>Air Arabia</td>
+            <td class="dur">16h 05m<div class="times">odlet 18.2. 12:10 → prílet 19.2. 10:15</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 05m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td class="dur">32h 50m<div class="times">odlet 7.3. 18:20 → prílet 8.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">19h 40m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2846 €</td>
+            <td>Air Arabia</td>
+            <td class="dur">16h 05m<div class="times">odlet 18.2. 12:10 → prílet 19.2. 10:15</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 05m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td class="dur">18h 05m<div class="times">odlet 6.3. 09:05 → prílet 6.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 55m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr></tbody>
+  </table>
+  </div></section><section class="day" id="day-2026-09-14">
+  <div class="meta">Beh: 2026-09-14 08:51:21</div>
+  <div class="summary">Najlacnejšia ponuka: <strong>2071 EUR</strong> z mesta <strong>VIE</strong> (návrat 2027-03-07, Air China).</div>
+  
+  <p class="meta">Zobrazených TOP 6 najlacnejších ponúk (porovnaných bolo 62).
+     &nbsp;<span class="gulf">❗</span> = prestup v Perzskom zálive (Dubaj, Dauha a pod.). &nbsp; <span class="newbadge">🆕 nové</span> = let, ktorý predošlý deň nebol v TOP.</p>
+  <div class="wrap">
+  <table>
+    <colgroup>
+      <col style="width:8%"><col style="width:10%"><col style="width:9%"><col style="width:7%">
+      <col style="width:9%"><col style="width:14%"><col style="width:9%"><col style="width:14%">
+      <col style="width:9%"><col style="width:11%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Odlet</th>
+        <th>Prílet</th>
+        <th>Návrat</th>
+        <th>Cena (EUR)</th>
+        <th>Aerolinka</th>
+        <th>Cesta TAM</th>
+        <th>Prestup TAM</th>
+        <th>Cesta SPÄŤ</th>
+        <th>Prestup SPÄŤ</th>
+        <th>Odkaz</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="cheapest">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2071 €</td>
+            <td>Air China</td>
+            <td class="dur">19h 35m<div class="times">odlet 18.2. 13:00 → prílet 19.2. 14:35</div></td>
+            <td><b>PEK</b> <span class="dur">3h 55m</span><div class="apn">Letisko Peking</div></td>
+            <td class="dur">15h 15m<div class="times">odlet 7.3. 10:20 → prílet 7.3. 19:35</div></td>
+            <td><b>BKK</b> <span class="dur">2h 05m</span><div class="apn">Letisko Suvarnabhumi</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2106 €</td>
+            <td>Scoot</td>
+            <td class="dur">17h 55m<div class="times">odlet 18.2. 10:00 → prílet 19.2. 09:55</div></td>
+            <td><b>SIN</b> <span class="dur">4h 15m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td class="dur">23h 25m<div class="times">odlet 6.3. 15:05 → prílet 7.3. 08:30</div></td>
+            <td><b>SIN</b> <span class="dur">8h 35m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2636 €</td>
+            <td>Saudia</td>
+            <td class="dur">16h 35m<div class="times">odlet 18.2. 15:45 → prílet 19.2. 14:20</div></td>
+            <td><b>JED</b> <span class="gulf">❗</span> <span class="dur">3h 45m</span><div class="apn">King Abdulaziz International Airport</div></td>
+            <td class="dur">28h 20m<div class="times">odlet 7.3. 15:50 → prílet 8.3. 14:10</div></td>
+            <td><b>RUH</b> <span class="gulf">❗</span> <span class="dur">13h 40m</span><div class="apn">Mezinárodní letiště Krále Chálida</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2696 €</td>
+            <td>Scoot</td>
+            <td class="dur">17h 55m<div class="times">odlet 18.2. 10:00 → prílet 19.2. 09:55</div></td>
+            <td><b>SIN</b> <span class="dur">4h 15m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td class="dur">32h 50m<div class="times">odlet 7.3. 18:20 → prílet 8.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">19h 40m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2846 €</td>
+            <td>Air Arabia</td>
+            <td class="dur">16h 05m<div class="times">odlet 18.2. 12:10 → prílet 19.2. 10:15</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 05m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td class="dur">32h 50m<div class="times">odlet 7.3. 18:20 → prílet 8.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">19h 40m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2846 €</td>
+            <td>Air Arabia</td>
+            <td class="dur">16h 05m<div class="times">odlet 18.2. 12:10 → prílet 19.2. 10:15</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 05m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td class="dur">18h 05m<div class="times">odlet 6.3. 09:05 → prílet 6.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 55m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr></tbody>
+  </table>
+  </div></section><section class="day" id="day-2026-09-13">
+  <div class="meta">Beh: 2026-09-13 13:21:43</div>
+  <div class="summary">Najlacnejšia ponuka: <strong>2071 EUR</strong> z mesta <strong>VIE</strong> (návrat 2027-03-07, Air China).</div>
+  
+  <p class="meta">Zobrazených TOP 6 najlacnejších ponúk (porovnaných bolo 61).
+     &nbsp;<span class="gulf">❗</span> = prestup v Perzskom zálive (Dubaj, Dauha a pod.). &nbsp; <span class="newbadge">🆕 nové</span> = let, ktorý predošlý deň nebol v TOP.</p>
+  <div class="wrap">
+  <table>
+    <colgroup>
+      <col style="width:8%"><col style="width:10%"><col style="width:9%"><col style="width:7%">
+      <col style="width:9%"><col style="width:14%"><col style="width:9%"><col style="width:14%">
+      <col style="width:9%"><col style="width:11%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Odlet</th>
+        <th>Prílet</th>
+        <th>Návrat</th>
+        <th>Cena (EUR)</th>
+        <th>Aerolinka</th>
+        <th>Cesta TAM</th>
+        <th>Prestup TAM</th>
+        <th>Cesta SPÄŤ</th>
+        <th>Prestup SPÄŤ</th>
+        <th>Odkaz</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="cheapest">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2071 €</td>
+            <td>Air China</td>
+            <td class="dur">19h 35m<div class="times">odlet 18.2. 13:00 → prílet 19.2. 14:35</div></td>
+            <td><b>PEK</b> <span class="dur">3h 55m</span><div class="apn">Letisko Peking</div></td>
+            <td class="dur">17h 55m<div class="times">odlet 7.3. 18:25 → prílet 8.3. 06:20</div></td>
+            <td><b>PEK</b> <span class="dur">2h 10m</span><div class="apn">Letisko Peking</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2106 €</td>
+            <td>Scoot</td>
+            <td class="dur">17h 55m<div class="times">odlet 18.2. 10:00 → prílet 19.2. 09:55</div></td>
+            <td><b>SIN</b> <span class="dur">4h 15m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td class="dur">23h 25m<div class="times">odlet 6.3. 15:05 → prílet 7.3. 08:30</div></td>
+            <td><b>SIN</b> <span class="dur">8h 35m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2438 €</td>
+            <td>Saudia</td>
+            <td class="dur">16h 35m<div class="times">odlet 18.2. 15:45 → prílet 19.2. 14:20</div></td>
+            <td><b>JED</b> <span class="gulf">❗</span> <span class="dur">3h 45m</span><div class="apn">King Abdulaziz International Airport</div></td>
+            <td class="dur">28h 20m<div class="times">odlet 7.3. 15:50 → prílet 8.3. 14:10</div></td>
+            <td><b>RUH</b> <span class="gulf">❗</span> <span class="dur">13h 40m</span><div class="apn">Mezinárodní letiště Krále Chálida</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2696 €</td>
+            <td>Scoot</td>
+            <td class="dur">17h 55m<div class="times">odlet 18.2. 10:00 → prílet 19.2. 09:55</div></td>
+            <td><b>SIN</b> <span class="dur">4h 15m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td class="dur">32h 50m<div class="times">odlet 7.3. 18:20 → prílet 8.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">19h 40m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="isnew">
+            <td><div class="newbadge">🆕 nové</div><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2846 €</td>
+            <td>Air Arabia</td>
+            <td class="dur">16h 05m<div class="times">odlet 18.2. 12:10 → prílet 19.2. 10:15</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 05m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td class="dur">32h 50m<div class="times">odlet 7.3. 18:20 → prílet 8.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">19h 40m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="isnew">
+            <td><div class="newbadge">🆕 nové</div><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2846 €</td>
+            <td>Air Arabia</td>
+            <td class="dur">16h 05m<div class="times">odlet 18.2. 12:10 → prílet 19.2. 10:15</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 05m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td class="dur">18h 05m<div class="times">odlet 6.3. 09:05 → prílet 6.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">4h 55m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr></tbody>
+  </table>
+  </div></section><section class="day" id="day-2026-09-12">
+  <div class="meta">Beh: 2026-09-12 16:04:08</div>
+  <div class="summary">Najlacnejšia ponuka: <strong>2071 EUR</strong> z mesta <strong>VIE</strong> (návrat 2027-03-07, Air China).</div>
+  
+  <p class="meta">Zobrazených TOP 6 najlacnejších ponúk (porovnaných bolo 64).
+     &nbsp;<span class="gulf">❗</span> = prestup v Perzskom zálive (Dubaj, Dauha a pod.).</p>
+  <div class="wrap">
+  <table>
+    <colgroup>
+      <col style="width:8%"><col style="width:10%"><col style="width:9%"><col style="width:7%">
+      <col style="width:9%"><col style="width:14%"><col style="width:9%"><col style="width:14%">
+      <col style="width:9%"><col style="width:11%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Odlet</th>
+        <th>Prílet</th>
+        <th>Návrat</th>
+        <th>Cena (EUR)</th>
+        <th>Aerolinka</th>
+        <th>Cesta TAM</th>
+        <th>Prestup TAM</th>
+        <th>Cesta SPÄŤ</th>
+        <th>Prestup SPÄŤ</th>
+        <th>Odkaz</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="cheapest">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2071 €</td>
+            <td>Air China</td>
+            <td class="dur">19h 35m<div class="times">odlet 18.2. 13:00 → prílet 19.2. 14:35</div></td>
+            <td><b>PEK</b> <span class="dur">3h 55m</span><div class="apn">Letisko Peking</div></td>
+            <td class="dur">17h 55m<div class="times">odlet 7.3. 18:25 → prílet 8.3. 06:20</div></td>
+            <td><b>PEK</b> <span class="dur">2h 10m</span><div class="apn">Letisko Peking</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2106 €</td>
+            <td>Scoot</td>
+            <td class="dur">17h 55m<div class="times">odlet 18.2. 10:00 → prílet 19.2. 09:55</div></td>
+            <td><b>SIN</b> <span class="dur">4h 15m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td class="dur">18h 10m<div class="times">odlet 6.3. 20:20 → prílet 7.3. 08:30</div></td>
+            <td><b>SIN</b> <span class="dur">3h 20m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>BUD</b><div class="apn">Medzinárodné letisko Ferenca Liszta Budapešť</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2236 €</td>
+            <td>Air China</td>
+            <td class="dur">19h 45m<div class="times">odlet 18.2. 19:35 → prílet 19.2. 21:20</div></td>
+            <td><b>PEK</b> <span class="dur">4h 20m</span><div class="apn">Letisko Peking</div></td>
+            <td class="dur">24h 45m<div class="times">odlet 6.3. 22:50 → prílet 7.3. 17:35</div></td>
+            <td><b>PEK</b> <span class="dur">8h 45m</span><div class="apn">Letisko Peking</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20BUD%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2438 €</td>
+            <td>Saudia</td>
+            <td class="dur">16h 35m<div class="times">odlet 18.2. 15:45 → prílet 19.2. 14:20</div></td>
+            <td><b>JED</b> <span class="gulf">❗</span> <span class="dur">3h 45m</span><div class="apn">King Abdulaziz International Airport</div></td>
+            <td class="dur">28h 20m<div class="times">odlet 7.3. 15:50 → prílet 8.3. 14:10</div></td>
+            <td><b>RUH</b> <span class="gulf">❗</span> <span class="dur">13h 40m</span><div class="apn">Mezinárodní letiště Krále Chálida</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>BUD</b><div class="apn">Medzinárodné letisko Ferenca Liszta Budapešť</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-06</td>
+            <td class="price">2640 €</td>
+            <td>Shanghai Airlines</td>
+            <td class="dur">28h 30m<div class="times">odlet 18.2. 11:30 → prílet 19.2. 22:00</div></td>
+            <td><b>PVG</b> <span class="dur">11h 55m</span><div class="apn">Medzinárodné letisko Šanghaj Pchu-tung</div></td>
+            <td class="dur">38h 00m<div class="times">odlet 6.3. 23:05 → prílet 8.3. 07:05</div></td>
+            <td><b>PVG</b> <span class="dur">21h 25m</span><div class="apn">Medzinárodné letisko Šanghaj Pchu-tung</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20BUD%20on%202027-02-18%20through%202027-03-06" target="_blank">Zobraziť ponuku</a></td>
+        </tr>
+        <tr class="">
+            <td><b>VIE</b><div class="apn">Letisko Viedeň-Schwechat</div></td>
+            <td><b>HKT</b><div class="apn">Phuket International Airport</div></td>
+            <td class="navrat">2027-03-07</td>
+            <td class="price">2696 €</td>
+            <td>Scoot</td>
+            <td class="dur">17h 55m<div class="times">odlet 18.2. 10:00 → prílet 19.2. 09:55</div></td>
+            <td><b>SIN</b> <span class="dur">4h 15m</span><div class="apn">Letisko Singapur-Changi</div></td>
+            <td class="dur">32h 50m<div class="times">odlet 7.3. 18:20 → prílet 8.3. 21:10</div></td>
+            <td><b>SHJ</b> <span class="gulf">❗</span> <span class="dur">19h 40m</span><div class="apn">Mezinárodní letiště Šardžá</div></td>
+            <td><a class="btn" href="https://www.google.com/travel/flights?q=Flights%20to%20HKT%20from%20VIE%20on%202027-02-18%20through%202027-03-07" target="_blank">Zobraziť ponuku</a></td>
+        </tr></tbody>
+  </table>
+  </div></section><script>
+  function showDay(date) {
+    document.querySelectorAll('.day').forEach(function (s) {
+      s.classList.toggle('active', s.id === 'day-' + date);
+    });
+    document.querySelectorAll('.tab').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.day === date);
+    });
+  }
+</script>
+</body>
+</html>
